@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You 💖</title>
+
+  <!-- Cute Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffffff);
+      color: #333;
+    }
+
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .flip-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .flip-card-back {
+      background-color: #ffe6f0;
+      color: #333;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.5;
+      box-sizing: border-box;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .flip-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .flip-scroll::-webkit-scrollbar-thumb {
+      background: #ff99cc;
+      border-radius: 4px;
+    }
+
+    .message-box {
+      background: #fff0f5;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 12px;
+      font-size: 18px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      min-height: 60px;
+    }
+
+    button {
+      background: #ff66a3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ff3385;
+    }
+
+    .footer {
+      font-size: 16px;
+      color: #666;
+      margin-top: 30px;
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .flip-card-back {
+        font-size: 16px;
+      }
+    }
+
+    .love-list {
+      text-align: left;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-left: 20px;
+      font-size: 16px;
+      background: #fffdf2;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-top: 20px;
+      padding: 20px;
+      list-style: decimal;
+    }
+    .love-list li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flip Card Section -->
+  <section class="section" style="background: #ffe6f0;">
+    <div class="container">
+      <h2>Hey Love 💕</h2>
+      <p>I made this just for you, because you are always special to me.</p>
+
+      <div class="flip-scroll">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="1.jpeg" alt="Photo 1">
+            </div>
+            <div class="flip-card-back">
+              Your smile brightens up my day 🌸
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="2.jpeg" alt="Photo 2">
+            </div>
+            <div class="flip-card-back">
+              Just like that flower, your beauty brightens everything around you.
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="3.jpeg" alt="Photo 3">
+            </div>
+            <div class="flip-card-back">
+              In your smile, I see something more beautiful than stars.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 16px;">Swipe to the right to see all the surprises ✨ (tap to reveal the message!)</p>
+    </div>
+  </section>
+
+  <!-- Sweet Message Generator -->
+  <section class="section" style="background: #fff;">
+    <div class="container">
+      <h2>Sweet Message 💌</h2>
+      <div class="message-box" id="message">Tap the button below to get a sweet message yaa</div>
+      <button onclick="generateMessage()">Show Message</button>
+    </div>
+  </section>
+
+  <!-- 100 Things I Love About You Section -->
+  <section class="section" style="background: #fffbe7;">
+    <div class="container">
+      <h2>100 Reasons Why I Love You 💖</h2>
+      <p>Here are just some of the many, many reasons why you mean so much to me...</p>
+      <ol class="love-list">
+        <li>You always know how to make me smile</li>
+        <li>Your hugs feel like home</li>
+        <li>You believe in me even when I doubt myself</li>
+        <li>Your laugh is contagious</li>
+        <li>You make the ordinary feel magical</li>
+        <li>The way you look at me makes me feel so loved</li>
+        <li>You remember the little things</li>
+        <li>Your kindness inspires me</li>
+        <li>You support my dreams</li>
+        <li>You’re my favorite hello and hardest goodbye</li>
+        <li>You’re patient even when I’m not</li>
+        <li>Your voice soothes me</li>
+        <li>You make me want to be better</li>
+        <li>You’re my safe space</li>
+        <li>Your sense of humor brightens my day</li>
+        <li>You’re incredibly thoughtful</li>
+        <li>You surprise me in the best ways</li>
+        <li>You love me even when I’m difficult</li>
+        <li>You make every moment count</li>
+        <li>You always listen</li>
+        <li>You’re honest and sincere</li>
+        <li>You celebrate my wins</li>
+        <li>You comfort me in my lows</li>
+        <li>You’re my calm in the storm</li>
+        <li>You never give up on us</li>
+        <li>You’re proud of me</li>
+        <li>You’re the most beautiful soul I’ve ever met</li>
+        <li>You’re strong, even when you don’t feel it</li>
+        <li>You bring light to my world</li>
+        <li>You understand me</li>
+        <li>Your creativity amazes me</li>
+        <li>Your heart is so big</li>
+        <li>You always know what to say</li>
+        <li>You make the best memories</li>
+        <li>Your presence is enough</li>
+        <li>You’re genuinely selfless</li>
+        <li>You laugh at my silly jokes</li>
+        <li>You care deeply</li>
+        <li>You’re adorable when you're sleepy</li>
+        <li>You inspire me daily</li>
+        <li>Your cuddles are the best therapy</li>
+        <li>You have a beautiful heart</li>
+        <li>You make me feel lucky</li>
+        <li>You’re my biggest cheerleader</li>
+        <li>You always find time for me</li>
+        <li>You bring peace into my chaos</li>
+        <li>Your texts brighten my day</li>
+        <li>You’re always growing</li>
+        <li>You challenge me to grow too</li>
+        <li>Your loyalty means everything</li>
+        <li>You’re my home</li>
+        <li>Your soul is gentle and fierce</li>
+        <li>You make me laugh when I want to cry</li>
+        <li>You show love in so many ways</li>
+        <li>You accept me completely</li>
+        <li>You make me feel seen</li>
+        <li>You’re full of surprises</li>
+        <li>You’re a great listener</li>
+        <li>You’re an amazing partner</li>
+        <li>You bring out the best in me</li>
+        <li>You’re passionate and driven</li>
+        <li>You’re magical in your own way</li>
+        <li>You have the warmest smile</li>
+        <li>You make rainy days feel sunny</li>
+        <li>You’re incredibly smart</li>
+        <li>You’re goofy in the cutest way</li>
+        <li>You’re a ray of sunshine</li>
+        <li>You trust me</li>
+        <li>You hold my hand tight</li>
+        <li>You are everything I never knew I needed</li>
+        <li>You’re always there for me</li>
+        <li>You dance with me even with no music</li>
+        <li>You dream big</li>
+        <li>You bring color into my world</li>
+        <li>You’re one of a kind</li>
+        <li>You laugh with your whole soul</li>
+        <li>You say “I love you” and mean it</li>
+        <li>You see the good in everything</li>
+        <li>You’re my daily motivation</li>
+        <li>You’re my peace</li>
+        <li>You give the best kisses</li>
+        <li>You make me feel safe</li>
+        <li>You’re not afraid to be vulnerable</li>
+        <li>You’re always learning</li>
+        <li>You love me unconditionally</li>
+        <li>You’re my dream come true</li>
+        <li>You have the purest heart</li>
+        <li>You’re the best thing that’s ever happened to me</li>
+        <li>You’re the person I want to grow old with</li>
+        <li>You’re my favorite adventure</li>
+        <li>You never stop caring</li>
+        <li>You’re everything I wished for</li>
+        <li>You’re my forever and always</li>
+        <li>You’re simply you—and I love every bit of you</li>
+        <li>You’ve taught me what real love feels like</li>
+        <li>You always light up the room</li>
+        <li>You make me feel complete</li>
+        <li>You’re my person</li>
+        <li>You make life more beautiful</li>
+        <li>You’re the love of my life</li>
+        <li>You’re my everything</li>
+        <li>Because... how could I not love you?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Final Section -->
+  <section class="section" style="background: #fef6ff;">
+    <div class="container">
+      <h2>Just For You</h2>
+      <p>I may not always be by your side, but my heart is always close.</p>
+      <p>Thank you for always being patient and kind with me. I love you.</p>
+      <div class="footer">— From the one who loves you the most 🌸</div>
+    </div>
+  </section>
+
+  <script>
+    const messages = [
+      "You're the reason I smile every single day 😊",
+      "My days are brighter since I met you 💖",
+      "I'm so lucky to have you in my life 😚",
+      "You're everything to me.",
+      "You complete every part of my day 🌷",
+      "If I had to choose again, I'd still choose you every time 🥺❤️"
+    ];
+
+    function generateMessage() {
+      const box = document.getElementById("message");
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      box.textContent = messages[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
